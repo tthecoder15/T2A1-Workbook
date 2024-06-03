@@ -186,10 +186,63 @@ ozanseymen (2016) _[Source Control for API Proxy Development](https://www.google
 
 - high detail explanation of standard testing process, more than one reference and example
 
+- tests should be written and implemented at all stages of development and maintained so they can incorporate evolving functionality (myakundi)
+- maintain and preserve mock data for testing (postman)
+- testing involves trying to break a system in a way that a user might (soap ui)
+- Jorgensen & Whitaker prescribe two testing methods and suggest their combination: category partitioning and Markov modelling, category partitioning is noting choices that trigger default responses, test those and the boundaries, write them into the test, incorporate Markov modelling too which is identifying the different conditions that affect an outcome, testing those with varied sequencing
+- this Markov modelling mirrors end-to-end testing which is testing user journeys by chaining requests together (postman)
+- testing should check for security vulnerabilities (soap, myakundi)
+- authenticate before the data is sent, ensure a security token is passed with each API request (soap)
+- ensure that SQL injection, the manual altering of SQL commands cannot occur (myakundi)
+- contract testing and load testing
+- testing tools include Insomnia, Postman, Soap UI (myakundi)
+
+In application development, tests should be written and executed throughout all stages of development and maintainted to incorporate evolving functionality (Myakundi, 2022). In an API context, standard testing must contain contract testing and the stability of request and response formatting, singular end-point unit tests, user journey testing and the chaining of requests, as well as load testing and the API's ability to respond at an appropriate speed when faced with increased traffic (Postman, n.d. and SoapUI, 2024a).
+
+When designing the specific tests, Jorgensen and Whitaker (2000) recommend category partitioning and Markov modelling to identify values to test with. Category partitioning recommends identifying all inputs that trigger default responses and testing at these boundaries. In an API interaction, this could refer to a required length or typing in a particular field. After identifying these breaking points, tests should submit these values as well as values that just qualify such as 0 and 1 for an input that must be greater than 1. They also recommend using Markov modelling which is identifying the different conditions that affect an outcome and testing those with varied sequencing. In an API context, this could refer to testing the result of a request when a user is authenticated versus not and then sequencing this with a different condition such as if the user's previous request was successful or not. Markov modelling is similar to end-to-end testing which tests user journeys and sequenced requests (Postman, n.d.).
+
+In addition to typical functionality testing, it is also vital to test the security of an API (SoapUI, 2024b). The authentication process of an API must be tested to confirm that the API does not sent data before confirming the identity of a user and ensuring this process perseveres when the server is receiving increased requests. Security tests should also ensure that users cannot submit requests with abnormal frequency, a typically malicious practice. Finally, APIs should be investigated to ensure they do not allow SQL injection that sends custom requests to the database (Myakundi, 2022).
+
+Overall, API testing must consider functionality, performance and security. To most effectively test these elements, developers should maintain specific tests that incorporate appropriate mock data to emulate user interaction with an API (Myakundi, 2022). Tools that can help with these tests include Insomnia, Postman and SoapUI.
+
+SoapUI (2024a) _[API Testing 101: Learn The Basics](https://www.soapui.org/learn/functional-testing/api-testing-101/)_, SoapUI website, accessed 3 June 2024.
+
+- tests should cover individual functionalities and series of functionalities checking how they work together
+- does what it's supposed to do, can handle the load, find all ways the users can mess things up, APIs work across devices browsers and OSs
+- create testing environments that emulate the requests
+- all types of testing
+
+SoapUI (2024b) _[State of API Security](https://www.soapui.org/learn/functional-testing/api-testing-101/)_, SoapUI website, accessed 3 June 2024.
+
+- authenticate at the web server before data is transferred
+- authentication is determining the identity of an end user
+- the token is passed with each API request and validated before the request is processed
+- use https
+- can use API gateway, can implement quotas and throttling
+
+Postman (n.d.) _[API Testing](https://www.postman.com/api-platform/api-testing/)_, SoapUI website, accessed 3 June 2024.
+
+- contract testing - check the content and format of requests and responses
+- unit testing - confirm a single endpoint returns a correct response to a given request including optional parameters and appropriate error message
+- end-to-end testing - testing user journeys by chaining requests together
+- load testing - testing large volumes of requests concurrently to check response times and error rates
+- create testing enviroments with mock data
+-
+
+Jorgensen, A., Whittaker, J. (2000) _An API Testing Method_, Florida Tech.
+
+- category partitioning - create a set of categories that describe properties of inputs, partition the categories into choices that trigger specific values that can be input, determine constraints that describe how the choices interact
+- think of the attributes of an input such as length and data type and content, consider specific values that trigger a default response, test the boundaries e.g./ 0 and 1 if at least one is the minimum, combine rule breaks such as length 0 and no spaces make both occur, then write these values into test
+- Markov modelling - identify the application the inputs, investigate possible operational modes that modify its behaviour, identify expected values based on the operational modes affecting the behaviour then test these, will generate many potential occurences such as how many files, read, write, does not exist, file 1/2, file 0/2 etc., test with varied sequencing of operational modes
+- hybrid technique, combining category partitioning and markov modelling - consider limits and boundaries and different state concurrently
+
 Myakundi, H. (2022) _[API Testing Best Practices - How to Test APIs for Beginners](https://www.freecodecamp.org/news/rules-of-api-testing-for-beginners/)_, FreeCodeCamp website, accessed 31 May 2024.
 
--
--
+- manual testing involves tools such as Insomnia, Postman
+- check for security vulnerabilities
+- SoapUI, Runscope, Postman
+- testing principles: continuous integration and delivery testing, tests should be easy to write and maintain, test at the boundary of the system, keep tests small and focused, make sure tests are deterministic
+- test functionality, performance and security (such as SQL injection)
 
 ## Q6. Explain the three principles of information system security. /6
 
