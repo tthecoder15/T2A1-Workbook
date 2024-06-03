@@ -205,6 +205,18 @@ In addition to typical functionality testing, it is also vital to test the secur
 
 Overall, API testing must consider functionality, performance and security. To most effectively test these elements, developers should maintain specific tests that incorporate appropriate mock data to emulate user interaction with an API (Myakundi, 2022). Tools that can help with these tests include Insomnia, Postman and SoapUI.
 
+## References
+
+Jorgensen, A., Whittaker, J. (2000) _An API Testing Method_, Florida Tech.
+
+Myakundi, H. (2022) _[API Testing Best Practices - How to Test APIs for Beginners](https://www.freecodecamp.org/news/rules-of-api-testing-for-beginners/)_, FreeCodeCamp website, accessed 31 May 2024.
+
+Postman (n.d.) _[API Testing](https://www.postman.com/api-platform/api-testing/)_, SoapUI website, accessed 3 June 2024.
+
+SoapUI (2024a) _[API Testing 101: Learn The Basics](https://www.soapui.org/learn/functional-testing/api-testing-101/)_, SoapUI website, accessed 3 June 2024.
+
+SoapUI (2024b) _[State of API Security](https://www.soapui.org/learn/functional-testing/api-testing-101/)_, SoapUI website, accessed 3 June 2024.
+
 SoapUI (2024a) _[API Testing 101: Learn The Basics](https://www.soapui.org/learn/functional-testing/api-testing-101/)_, SoapUI website, accessed 3 June 2024.
 
 - tests should cover individual functionalities and series of functionalities checking how they work together
@@ -250,11 +262,47 @@ Myakundi, H. (2022) _[API Testing Best Practices - How to Test APIs for Beginner
 
 - A good one to answer early
 
-(<https://www.google.com/search?q=three+principles+of+information+security&oq=three+principles+of+information+security&gs_lcrp=EgZjaHJvbWUyCQgAEEUYORiABDIICAEQABgWGB4yCAgCEAAYFhgeMggIAxAAGBYYHjIICAQQABgWGB4yCAgFEAAYFhgeMggIBhAAGBYYHjIICAcQABgWGB4yCAgIEAAYFhgeMggICRAAGBYYHtIBCDg1MTZqMGo3qAIAsAIA&sourceid=chrome&ie=UTF-8>)
+Babenko, M., Schwiegelsohn, U., Talbi, E. & Tchernykh, A. (2019), 'Towards understanding uncertainty in cloud computing with risks of confidentiality, integrity, and availability'. _Journal of Computational Science_, vol. 36, DOI:[10.1016/j.jocs.2016.11.011](https://doi.org/10.1016/j.jocs.2016.11.011)
+
+- Confidentiality, Integrity and Availability (CIA)
+- cloud increases security risks by shifting traditional models
+- confidentiality is limited access to information
+- integrity as the assurance that the information is trustworthy and accurate
+- availability as a guarantee of reliable access to the information by authorised people
+- data encryption, user identity documents (IDs), passwords, cards, retina scans, voice recognition and fingerprints, security tokens, key fobs
+- savailability can compromised by bottlenecks, redundancy, hardware failure, speed om retirm
+- sharing resources with other virtual machines can slow, vms performance is unpredictable, physical hardware can slow vms even if a guaranteed speed is promised
+- information security assumes defending information from unauthorized access, use, disclosure, disruption
+- must consider accidental threats and failures
+- these authors propose "accountability" to protect data by all users who process the data
+- cryptographic protocol and error correction codes can reduce the risk
+- accidental threats include user errors, carelesslness, curiosity
+- check sums for monitoring obtained results
+- challenges because resource scheduling is difficult when the resource is shared amongst unknown users
+- data replication but is dangerous, secret sharing schemes (SSS) dealer distributes shares to recipients such that only authorised subsets of recipients can reconstruct the secret, can use homomorphic encryption which retains data encryption whilst it is encrypted public key to encrypt and corresponding private key can unlock but can have effects applied to it that maintains the relationship to the data computation can occur on ciphers which matches the result of operations performed on the original numbers,
+
+Olivier, M. (2002), 'Database privacy: balancing confidentiality, integrity aand availability'. _SIGKDD Explorer Newsletter_, 4(3),  DOI:[10.1145/772862.772866](https://doi.org/10.1145/772862.772866)
+
+- each considered individually is easy to solve its the intersection of all that is challenging
+- without availability unplugging the database is sufficient, anonymity can be a solution if private data is not captured it cannot be abused but availability of private data is important banks etc
+- privacy is not simple as availability of personal information is a consideration
+- privacy should consider why data needs to be recorded and the fall out for the two parties if it was leaked
+- database privacy needs to consider the purposes for which the data was collected
+- consenting to data storage, opt-in or opt-out is binary and challenges when a service is mandatory
+- challenge develop systems that can find a balance between confidentiality integrity and availability
+- could contain the data and verify or scatter the data and give links to those that need
+
+Mitchell, O., Osazuwa, C. (2023), 'Confidentiality, Integrity, and Availability in Network Systems: A Review of Related Literature'. _International Journal of Innovative Science and Research Technology_, 8(12),  DOI:[10.38124/ijisrt](https://doi.org/10.38124/ijisrt)
+
+-
+
+## References
 
 ## Q7. Provide an overview of what would need to be done within an API project to implement at least one of the principles explained in Question 6. /6
 
-- overview is correct, supported by more than one valieamd relevenat code with a high level of detail
+Covert, Q., Francis, M., Streff, K. (2020). _Towards a Triad for Data Privacy_, DOI: [10.24251/HICSS.2020.535](https://doi.org/10.24251/HICSS.2020.535)
+
+- overview is correct, supported by more than one valid relevant code with a high level of detail
 
 ## Q8. Explain the legal obligations that developers of a social media website or social media application would have in regards to handling user data, with reference to any applicable laws or acts. /12
 
