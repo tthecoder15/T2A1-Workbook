@@ -85,19 +85,6 @@ PostgreSQL (n.d.) _[PostgreSQL About](https://www.postgresql.org/about/)_, Postg
 
 ## Q3. Discuss an implementation of an Agile project management methodology for an API project. /6
 
-- high detail description of agile project managment methodologies, more than one reference and example
-
-- what is agile proj managements, how does it work, how can it be applied to an api project
-
-- Agile management is breaking down work into objectives and dividing responsibilities to individuals
-- it requires a project manager who can support the team members with expert knowledge
-- requires consistent feedback to reflect on what is working and what is not
-- demands face-to-face communication
-- often contains a Kanban board which contains a physical and visual representation of goals
-- in terms of API -> the objects would be broken down -> database, routing, database interaction, database updating, testing, API infrastructure and data returning format
-- each of these would be broken down again and compartmentalised so that they can link up when neccessary
-- deadlines would be emphasised on the things that need to be completed first such as the API infrastructure and database formatting
-
 Agile project management is a collection of techniques used to break down the steps required to achieve a large goal. Broadly, agile projects begin with a team describing the steps neccessary to reach a goal, estimating the resources needed to achieve these sub-goals including time and personnel distribution, deciding which goals are most urgent, dividing the responsibilities amongst team members and constantly evaluating how each sub-goal is tracking (Moe, et. all, 2014). With these calculations, the team schedules iterations which are deadlines for an outcome to be achieved. In agile planning, a project manager is an active participant in the work who provides expert feedback on work and helps solve problems (Fernandez & Fernandez, 2008). However, agile methods also prioritise giving team members autonomy in their own time management and objectives. Agile projects also schedule feature regular face-to-face feedback loops where team members check-in on eachother's work, share their progress and difficulties and reflect upon their processes to identify what is working and what needs altering moving forwards. Finally, a typical feature of agile projects is a kanban board where team members write sub-goals on sticky notes and track their progress by moving them into sections such as "to do", "in progress", "need help", "review" and "finished". The kanban board is updated as team members reach challenges or during feedback sessions (Moe, et. all, 2014).
 
 Utilising agile project management to create an API would require a team to first break down the process into features and components. For an API this would include API infrastructure and the decision of what software and modules will be used, database initialising and seeding, routing, database interaction functions from the app such as adding data, testing of the app, testing of the database and standardising data returns. The highest priority task would be to decide upon the API infrastructure and which software will be used. In an agile project, it would likely be beneficial if all team members have a chance to weigh-in on the tech stack. After this is decided, the team would estimate how long each task would take and create a kanban board to monitor progress. The project manager would lead the team in defining iterations and deadlines for the team to achieve. These deadlines would prioritise the objectives which are neccessary for other sub-goals including the database initialisation which needs to be completed so that the routing can connect to it. With the kanban board created and iterations defined, the team members would divide the work amongst themselves, with input from the project manager. The project manager would also schedule regular check-ins so that the team members can update eachother on their progress and voice challenges. As the team members meet, challenges would be shared and the team could continually adjust its goals, potentially changing their responsibilities or collaborating on specific tasks if they are overwhelming an individual. In addition, the project manager would continually evaluate the relevance of each feature and consider adding or removing any features.
@@ -186,17 +173,6 @@ ozanseymen (2016) _[Source Control for API Proxy Development](https://www.google
 
 - high detail explanation of standard testing process, more than one reference and example
 
-- tests should be written and implemented at all stages of development and maintained so they can incorporate evolving functionality (myakundi)
-- maintain and preserve mock data for testing (postman)
-- testing involves trying to break a system in a way that a user might (soap ui)
-- Jorgensen & Whitaker prescribe two testing methods and suggest their combination: category partitioning and Markov modelling, category partitioning is noting choices that trigger default responses, test those and the boundaries, write them into the test, incorporate Markov modelling too which is identifying the different conditions that affect an outcome, testing those with varied sequencing
-- this Markov modelling mirrors end-to-end testing which is testing user journeys by chaining requests together (postman)
-- testing should check for security vulnerabilities (soap, myakundi)
-- authenticate before the data is sent, ensure a security token is passed with each API request (soap)
-- ensure that SQL injection, the manual altering of SQL commands cannot occur (myakundi)
-- contract testing and load testing
-- testing tools include Insomnia, Postman, Soap UI (myakundi)
-
 In application development, tests should be written and executed throughout all stages of development and maintainted to incorporate evolving functionality (Myakundi, 2022). In an API context, standard testing must contain contract testing and the stability of request and response formatting, singular end-point unit tests, user journey testing and the chaining of requests, as well as load testing and the API's ability to respond at an appropriate speed when faced with increased traffic (Postman, n.d. and SoapUI, 2024a).
 
 When designing the specific tests, Jorgensen and Whitaker (2000) recommend category partitioning and Markov modelling to identify values to test with. Category partitioning recommends identifying all inputs that trigger default responses and testing at these boundaries. In an API interaction, this could refer to a required length or typing in a particular field. After identifying these breaking points, tests should submit these values as well as values that just qualify such as 0 and 1 for an input that must be greater than 1. They also recommend using Markov modelling which is identifying the different conditions that affect an outcome and testing those with varied sequencing. In an API context, this could refer to testing the result of a request when a user is authenticated versus not and then sequencing this with a different condition such as if the user's previous request was successful or not. Markov modelling is similar to end-to-end testing which tests user journeys and sequenced requests (Postman, n.d.).
@@ -260,9 +236,17 @@ Myakundi, H. (2022) _[API Testing Best Practices - How to Test APIs for Beginner
 
 - three information system security requirements at a moderate level of detail, supporting the explanation with at least one reference or example
 
-- A good one to answer early
+The three principles of information system security are confidentiality, integrity and availability. These principles are commonly valued when creating data services and implementing security measures to protect them.
 
-Babenko, M., Schwiegelsohn, U., Talbi, E. & Tchernykh, A. (2019), 'Towards understanding uncertainty in cloud computing with risks of confidentiality, integrity, and availability'. _Journal of Computational Science_, vol. 36, DOI:[10.1016/j.jocs.2016.11.011](https://doi.org/10.1016/j.jocs.2016.11.011)
+Confidentiality considers the legal and ethical obligations of data stoage to protect data from being released to inappropriate viewers (Mitchell and Osazuwa, 2023). In a medical database, an individual's name, birthdate, ailments and treatment history could be stored and an individual has a right to keep this information private. However, when receiving treatment, it is appropriate for a doctor to access this data to help their assessments. Confidentiality also considers when an individual has the right to consent or not consent to their data being stored or accessed (Olivier, 2002).
+
+Integrity in information system security refers to data being trustworthy and accurate (Babenko et al., 2019). This means that data should not be alterable in unauthorised or disingenuous ways and, as such, security systems should only allow authorised users to alter data (Mitchell and Osazuwa, 2023). For example, a medical practitioner could be allowed to update an individuals health records so that they accurately reflect a new set of blood tests or diagnoses. Evidently, integrity and confidentiality are interconnected as anyone updating a piece of data manually would then know the new value recorded.
+
+Availability is ensuring data can be accessed by authorised individuals when it is required (Babenko, et al., 2019). Availability can be considered as a right of the user when they consent to their data being stored as, otherwise, it may have been inappropriate to store that data (Olivier, 2002). Notably, availability is threatened by the failure of webservices or server functions due to hardware faults, clogged communication channels and the lack of a fallback strategy to access the information (Mitchell and Osazuwa). In a medical field, availability could refer to a doctor having access to a patient's allergies when giving them medication.
+
+Notably, confidentiality, integrity and accessibility are interconnected and must be balanced if they are to co-exist. Individually, any principle could be prioritised but it would come at the expense of another such as keeping a server offline which could preserve integrity but would significantly limit availability (Olivier, 2002).
+
+Babenko, M., Schwiegelsohn, U., Talbi, E. & Tchernykh, A. (2019)
 
 - Confidentiality, Integrity and Availability (CIA)
 - cloud increases security risks by shifting traditional models
@@ -270,7 +254,7 @@ Babenko, M., Schwiegelsohn, U., Talbi, E. & Tchernykh, A. (2019), 'Towards under
 - integrity as the assurance that the information is trustworthy and accurate
 - availability as a guarantee of reliable access to the information by authorised people
 - data encryption, user identity documents (IDs), passwords, cards, retina scans, voice recognition and fingerprints, security tokens, key fobs
-- savailability can compromised by bottlenecks, redundancy, hardware failure, speed om retirm
+- availability can compromised by bottlenecks, redundancy, hardware failure, speed om retirm
 - sharing resources with other virtual machines can slow, vms performance is unpredictable, physical hardware can slow vms even if a guaranteed speed is promised
 - information security assumes defending information from unauthorized access, use, disclosure, disruption
 - must consider accidental threats and failures
@@ -281,30 +265,54 @@ Babenko, M., Schwiegelsohn, U., Talbi, E. & Tchernykh, A. (2019), 'Towards under
 - challenges because resource scheduling is difficult when the resource is shared amongst unknown users
 - data replication but is dangerous, secret sharing schemes (SSS) dealer distributes shares to recipients such that only authorised subsets of recipients can reconstruct the secret, can use homomorphic encryption which retains data encryption whilst it is encrypted public key to encrypt and corresponding private key can unlock but can have effects applied to it that maintains the relationship to the data computation can occur on ciphers which matches the result of operations performed on the original numbers,
 
-Olivier, M. (2002), 'Database privacy: balancing confidentiality, integrity aand availability'. _SIGKDD Explorer Newsletter_, 4(3),  DOI:[10.1145/772862.772866](https://doi.org/10.1145/772862.772866)
+Olivier, M. (2002)
 
 - each considered individually is easy to solve its the intersection of all that is challenging
 - without availability unplugging the database is sufficient, anonymity can be a solution if private data is not captured it cannot be abused but availability of private data is important banks etc
-- privacy is not simple as availability of personal information is a consideration
+- privacy is not simple, availability of personal information is a consideration
 - privacy should consider why data needs to be recorded and the fall out for the two parties if it was leaked
 - database privacy needs to consider the purposes for which the data was collected
 - consenting to data storage, opt-in or opt-out is binary and challenges when a service is mandatory
 - challenge develop systems that can find a balance between confidentiality integrity and availability
 - could contain the data and verify or scatter the data and give links to those that need
 
-Mitchell, O., Osazuwa, C. (2023), 'Confidentiality, Integrity, and Availability in Network Systems: A Review of Related Literature'. _International Journal of Innovative Science and Research Technology_, 8(12),  DOI:[10.38124/ijisrt](https://doi.org/10.38124/ijisrt)
+Mitchell, O., Osazuwa, C. (2023)
 
--
+- CIA triad - confidentiality, integrity and availability
+- confidentiality refers to the ethical and legal need to protect sensitive information from disclosure
+- organisations may experience financial losses, reputational harm or legal consqeuences due to data breaches
+- appropriate authority to alter the data, hash functions and digital signatures are cryptographic methods for data iintegrity
+- unforseen periods of operational inactivity arising from technological malfunctions or cyber intrusions imprede organisational processes, require failover methods
+- the triad is interlinked and a failure of any would cause a failure in the others
+- mirrored systems ensure redundancy, load-balancing techniques that distribute traffic, disaster plans all preserve availability
+- phishing is confidentiality threat, data breaches
+- availability denial-of-service (DOS), DDOS is the same but numerous sources do the attack
+- recommendations: incorporate emerging technologies, holistic approach to security, cross-disciplinary collaboration (policy makers & tech experts),
 
 ## References
 
-## Q7. Provide an overview of what would need to be done within an API project to implement at least one of the principles explained in Question 6. /6
+Babenko, M., Schwiegelsohn, U., Talbi, E. & Tchernykh, A. (2019), 'Towards understanding uncertainty in cloud computing with risks of confidentiality, integrity, and availability'. _Journal of Computational Science_, vol. 36, DOI:[10.1016/j.jocs.2016.11.011](https://doi.org/10.1016/j.jocs.2016.11.011)
+
+Mitchell, O., Osazuwa, C. (2023), 'Confidentiality, Integrity, and Availability in Network Systems: A Review of Related Literature'. _International Journal of Innovative Science and Research Technology_, 8(12),  DOI:[10.38124/ijisrt](https://doi.org/10.38124/ijisrt)
+
+Olivier, M. (2002), 'Database privacy: balancing confidentiality, integrity aand availability'. _SIGKDD Explorer Newsletter_, 4(3),  DOI:[10.1145/772862.772866](https://doi.org/10.1145/772862.772866)
+
+## Q7. Provide an overview of what would need to be done within an API project to implement at least one of the principles explained in Question 6. /12
+
+## BIG ONE
+
+- overview is correct, supported by more than one valid and relevant relevant code example with a high level of detail
 
 Covert, Q., Francis, M., Streff, K. (2020). _Towards a Triad for Data Privacy_, DOI: [10.24251/HICSS.2020.535](https://doi.org/10.24251/HICSS.2020.535)
 
-- overview is correct, supported by more than one valid relevant code with a high level of detail
+- JWT
+- bcrypt
+
+## References
 
 ## Q8. Explain the legal obligations that developers of a social media website or social media application would have in regards to handling user data, with reference to any applicable laws or acts. /12
+
+## BIG ONE
 
 - more than one legal obligation relevant to handling user data explained in high amounts of detail including relevant references to support the explanation
 
@@ -318,7 +326,62 @@ Covert, Q., Francis, M., Streff, K. (2020). _Towards a Triad for Data Privacy_, 
 
 - detailed description of the structural aspects of a relational database model with detailed descriptions of all structural relationship types
 
-- a good one to answer early
+The relational model is a format for describing and storing data in a standardised table format. The relational model is utilised in relational databases which contain collections of tables to be accessed in flexible ways whilst preserving the data's integrity (Jatana et al., 2012). These tables, also known as relations, feature columns which describe attributes of an entity, formatted in defined data types, and are seeded with rows that represent individual sets of data, also known as tuples (Geeks for Geeks, 2024a). A table and the columns it features is referred to as the relation schema.
+
+Relations are configured with primary keys, values that are unique to a specific tuple and make each row distinct (Oracle, n.d.). The relational model also allows distinct tables to be linked by sharing a primary key from one table to be used as a primary key in a different table. The borrowed primary key is called a foreign key. Tables can also be configured so that their primary key is comprised of two values combining to make a unique identifier. This is called a composite key. Finally, two or more tables can also contribute foreign keys to create a primary key in another table called a compound key (BBC, n.d.).
+
+Primary keys, foreign keys, composite keys and compound keys allow for varying types of relationships between data. In a database context, a single foreign key can by used to represent a one-to-one relationship such as an individual being a single customer in a database. Alternatively, a composite key comprised of a foreign key and a separate attribute can be used for one-to-many relationships such as a customer having multiple orders with unique order numbers. Finally, a compound key of foreign keys can represent many-to-many relationships such as an inventory of items that can be ordered by multiple customers, in multiple orders (Geeks for Geeks, 2024b).
+
+## References
+
+BBC (n.d.) _[Design: Types of keys](https://www.bbc.co.uk/bitesize/guides/z4wf8xs/revision/4#:~:text=In%20a%20relational%20database%2C%20keys,and%20identify%20relationships%20between%20them.)_, BBC website, accessed 4 June 2024.
+
+Geeks for Geeks (2024a) _[Relational Model in DBMS](https://www.geeksforgeeks.org/relational-model-in-dbms/)_, Geeks for Geeks website, accessed 4 June 2024.
+
+Geeks for Geeks (2024b) _[Relationships in SQL - One-to-One, One-to-Many, Many-to-Many](https://www.geeksforgeeks.org/relationships-in-sql-one-to-one-one-to-many-many-to-many/)_, Geeks for Geeks website, accessed 4 June 2024.
+
+Jatana, N., Puri, S., Ahuja, M., Kathuria, I., & Gosain, D. (2012). A Survey and Comparison of Relational and Non-Relational Database. _International journal of engineering research and technology_, 1.
+
+Oracle (n.d.) _[What is a Relational Database (RDBMS)?](https://www.oracle.com/au/database/what-is-a-relational-database/)_, Oracle website, accessed 4 June 2024.
+
+BBC (n.d.)
+
+- keys enable rows to be uniquely identified or tables to be linked and related
+- foreign keys allows the linking of tables
+- surrogate key - an auto generated number to make a row unique
+- composite key - the combination of two values to make a primary key
+- compound key - two or more primary keys from different tables are foreign keys in a table that takes data from both
+
+Geeks for Geeks (2024)
+
+- a collection of tables to represent data and the relationships among the data, multiple columns, unique names, tables are relations, each table contains records of a particular type, fixed number of fields or attributes
+- attribute, relation schema the structure of a table and the umbrella of attributes that make a table if more than one relation its a relational schema, tuple each row in a table is a tuple, degree the number of attributes in a table, cardinality the number of tuples in a relation, relation key the keys used to identify rows uniquely or linking tables, primary key the key that is distinct of a row, foreign key
+
+Geeks for Geeks (2024b) _[Relationships in SQL - One-to-One, One-to-Many, Many-to-Many](https://www.geeksforgeeks.org/relationships-in-sql-one-to-one-one-to-many-many-to-many/)_, Geeks for Geeks website, accessed 4 June 2024.
+
+Oracle (n.d.)
+
+- in a relational database, each row in the table is a record with a unique ID called a key
+- columns hold attributes of the daya
+- different tables can be linked by a primary key, called a foreign key in the secondary table
+- relational databases are structured so that the logical data structures (tables, views, indexes) are separate from physical storage structures, renaming a database does not rename the tables stored within it
+- relational databases establish and follow integrity rules such as duplicate rows are not allowed
+- the relational model is a standardised way to represent and query data, allows the use of SQL which is built upon relational algebra
+- atomicity is the strict rulings that govern how data is allowed to be updated, a relational database won't commit changes until it is sure linked tables allow it
+- ACID atomicity - all elements that make up a complete databse transaction, consistency - the rules for maintaining data points after a transaction, isolation keeps the effect of a transaction invisible until it is commited to avoid confusion, durability - changes are permanent
+- relational databases allow stored procedures which are reusable blocks using an app call
+- database locking prevents users from accessing data while it is being updated, different apps lock tables or rows
+
+Jatana, N., Puri, S., Ahuja, M., Kathuria, I., & Gosain, D. (2012).
+
+- database = application that allows storing and retrieving data rapidly
+- a collection of data iitems organised in described tables that can be accessed or reassembled in different ways
+- a set of tables with data in columns, rows contain unique instances of data set
+- the database can be viewed in many ways
+- benefits of a relational model database is the data is stored in the db rather than an app, easy to add update delete data because its centralised, the nature of the database is predictable
+- shortcomings of relational database: they struggle to scale at a particular point because the database must be distributed, data can become highly complex, SQL can be complex, joining tables in distributed servers is difficult
+- data can be cached
+- eliminates record duplication and prevents inconsistent data from occupying the db
 
 ## Q10. Describe the integrity aspects of the relational database model. Your description should include information about the types of data integrity and how they can be enforced in a relational database. /6
 
