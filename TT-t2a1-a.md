@@ -330,9 +330,7 @@ The relational model is a format for describing and storing data in a standardis
 
 Relations are configured with primary keys, values that are unique to a specific tuple and make each row distinct (Oracle, n.d.). The relational model also allows distinct tables to be linked by sharing a primary key from one table to be used as a primary key in a different table. The borrowed primary key is called a foreign key. Tables can also be configured so that their primary key is comprised of two values combining to make a unique identifier. This is called a composite key. Finally, two or more tables can also contribute foreign keys to create a primary key in another table called a compound key (BBC, n.d.).
 
-Primary keys, foreign keys, composite keys and compound keys allow for varying types of relationships between data. In a database context, a single foreign key can by used to represent a one-to-one relationship such as an individual being a single customer in a database. Alternatively, a composite key comprised of a foreign key and a separate attribute can be used for one-to-many relationships such as a customer having multiple orders with unique order numbers. Finally, a compound key of foreign keys can represent many-to-many relationships such as an inventory of items that can be ordered by multiple customers, in multiple orders (Geeks for Geeks, 2024b).
-
-## define cardinality?
+Primary keys, foreign keys, composite keys and compound keys allow for the different types of cardinal relationships. In a database, a single foreign key can by used to represent a one-to-one relationship such as an individual's name being linked to a single customer ID in a database. Alternatively, a composite key comprised of a foreign key and a separate attribute can be used for one-to-many relationships such as a single customer's ID being linked to multiple orders with unique order numbers. Finally, a compound key of foreign keys can represent many-to-many relationships such as an inventory of items that can be optionally ordered by multiple customers (Geeks for Geeks, 2024b).
 
 ## References
 
@@ -458,7 +456,68 @@ Babenko, M., Schwiegelsohn, U., Talbi, E. & Tchernykh, A. (2019), 'Towards under
 
 - SQL code examples including joins
 
-- a good one to answer early
+In the relational database model, data can be manipulated when entered, via updates and deletion as well as through queries. In PostgreSQL, these functions can be achieved by using SQL commands via an interface such as psql, a terminal-based front-end application (PostgreSQL Documentation, n.d.a).
+
+Before data is entered, it can be manipulated upon entry by configuring the tables to alter it. Defining a data type will format the data to that type. For example, by defining "int" as a column's data type, it will be recorded as a number value rather than a string. Similarly, a column can be assigned a default value if it is not specified. This decision impacts how the data is recorded and how it can be queried. A table that manipulates data in this way could be coded like this:
+
+```Postgres
+CREATE TABLE shoes (
+    id SERIAL,
+    brand TEXT NOT NULL,
+    style TEXT NOT NULL PRIMARY KEY,
+    price DECIMAL DEFAULT 99.99
+);
+```
+
+Data can then be seeded into a table using "INSERT INTO". Data entered must conform to the column rules.
+
+```Postgres
+INSERT INTO shoes 
+    (brand, style)
+    VALUES ('Nike', 'Air Jordan 4');
+    <!-- With no assigned "price", the shoes will be assigned the default value of 99.99. -->
+```
+
+Tuples in table can be manipulated permanently using the "UPDATE" functionality. In this example, tuples where the "brand" and "style" attributs of "Nike" and "Air Jordan 4" respectively have their "price" value set to "199.99".
+
+```Postgres
+UPDATE shoes 
+    SET price = 199.99
+    WHERE brand = 'Nike'
+    AND style = 'Air Jordan 4';
+```
+
+Data can be removed at a tuple level by using "DELETE FROM". Adhering to the relational database model, PostgreSQL will prevent a user from deleting a tuple that contains a foreign key for another table unless both tuples are deleted simultaneously. Entire columns or tables can be deleted using "DROP COLUMN" and "DROP TABLE" respectively. To preserve the tables and other schema but delete all tuple entries, "TRUNCATE" can be used (Postgres Documentation, n.d.b).
+
+```Postgres
+    TRUNCATE shoes;
+```
+
+Querying the data can also allow for powerful temporary manipulation. "SELECT" is used to target and return specific tuples based on defined critera known as clauses. The following returns the style and price of all shoes with brand value "Nike".
+
+```Postgres
+    SELECT style, price
+    FROM shoes
+    WHERE brand = 'Nike'
+```
+
+Tables linked via matching values such as foreign keys can also be temporarily joined by comining a "SELECT" statement with one of the "JOIN" keywords. The type of join defines how the tables are returned. "JOIN" defaults to "INNER JOIN" which only returns tuples where the clause condition is true. Alternatively, "LEFT JOIN", "RIGHT JOIN" and "FULL JOIN" allign rows where the clause conditions match but also return values that do not match in the temporary table. For example, if a second table created and seeded that uses the style of shoe as a foreign key, the following would combine the tables with the style listed first then the price, colour way name, primary colour and secondary colour values listed left to right.
+
+```Postgres
+SELECT colour_ways.style, price, colour_way_name, primary_colour, secondary_colour FROM colour_ways INNER JOIN shoes ON colour_ways.style = shoes.style;  
+```
+
+Returns this:
+
+![The results using "INNER JOIN" as described above](/docs/postgres_inner_join_eg1.png)
+
+These keywords and techniques allow users to manipulate data in powerful ways that maintain the relational database model.
+
+## References
+
+PostgreSQL Documentation (n.d.a) _[psql](https://www.postgresql.org/docs/current/app-psql.html)_, PostgreSQL website, accessed 5 June 2024.
+
+PostgreSQL Documentation (n.d.b) _[Truncate](https://www.postgresql.org/docs/16/sql-truncate.html)_, PostgreSQL website, accessed 5 June 2024.
 
 ## Q12. Conduct research into a web application (app) and answer each of the following sub-questions: /42
 
