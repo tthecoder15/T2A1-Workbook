@@ -332,6 +332,8 @@ Relations are configured with primary keys, values that are unique to a specific
 
 Primary keys, foreign keys, composite keys and compound keys allow for varying types of relationships between data. In a database context, a single foreign key can by used to represent a one-to-one relationship such as an individual being a single customer in a database. Alternatively, a composite key comprised of a foreign key and a separate attribute can be used for one-to-many relationships such as a customer having multiple orders with unique order numbers. Finally, a compound key of foreign keys can represent many-to-many relationships such as an inventory of items that can be ordered by multiple customers, in multiple orders (Geeks for Geeks, 2024b).
 
+## define cardinality?
+
 ## References
 
 BBC (n.d.) _[Design: Types of keys](https://www.bbc.co.uk/bitesize/guides/z4wf8xs/revision/4#:~:text=In%20a%20relational%20database%2C%20keys,and%20identify%20relationships%20between%20them.)_, BBC website, accessed 4 June 2024.
@@ -385,9 +387,70 @@ Jatana, N., Puri, S., Ahuja, M., Kathuria, I., & Gosain, D. (2012).
 
 ## Q10. Describe the integrity aspects of the relational database model. Your description should include information about the types of data integrity and how they can be enforced in a relational database. /6
 
-- detailed description of the integrity aspects, at least one integrity technique explained and supported by a relevant code example
+The relational model is designed to ensure data integrity by featuring keys. Primary keys being mandated ensures that data is uniquely identifiable and also prevents a single instance of data from being entered multiple times (Levene and Loizou, 2001). By making each entry unique, data loss from disorganisation is reduced and users accessing or updating the data are ensured that they are not missing any stored information which can happen in non-relational data storage. Foreign keys also preserve integrity by maintaining relationships between different tables and attributes so that data is not lost.
 
-- a good one to answer early
+At a database level, relational models are programmed with safeguards to ensure data remains trustworthy. Relational databases lock tables or rows data when it is being updated so that it cannot be queried whilst incomplete or incorrect. Similarly, relational databases make database changes permanent enforcing updates as definitive to ensure data is accurate when it is submitted (Oracle, n.d.). User roles, passwords and privileges can also be implemented to restrict data editing to qualified, trustworthy individuals too (Babenko et al., 2019). Restricting columns from allowing non-null values and accepting only specific data types is another simple measure to ensure that any entered and queried data is complete and, therefore, trustworthy (Levene, Loizou, 2001).
+
+Using Postgres, the integrity measures of establishing a unique serial value as a primary key, requiring a column value and specifiying data types can executed as so:
+
+``` Postgres
+    CREATE TABLE example (id SERIAL PRIMARY KEY, name TEXT NOT NULL, age INT);
+```
+
+Once this table is generated, an attempt to seed the table without a name value or by inputting an age value as a text string will fail:
+
+![Error messages from inapproriate data seeding into "example" table](/docs/postgres_integrity_eg1.png)
+
+By extension, correct data entries will have a uniquely generated primary key in a column named "id" ensuring that similar entries are segregated:
+
+![Distinct entries from similar data](/docs/postgres_integrity_eg2.png)
+
+These measures, whilst simple, are fundamental to relational databases' integrity.
+
+## References
+
+Babenko, M., Schwiegelsohn, U., Talbi, E. & Tchernykh, A. (2019), 'Towards understanding uncertainty in cloud computing with risks of confidentiality, integrity, and availability'. _Journal of Computational Science_, vol. 36, DOI:[10.1016/j.jocs.2016.11.011](https://doi.org/10.1016/j.jocs.2016.11.011)
+
+Levene, M. and Loizou, G. (2001) ‘A Generalisation of Entity and Referential Integrity in Relational Databases’, RAIRO - Theoretical Informatics and Applications, 35(2), pp. 113–127. DOI:10.1051/ita:2001111[https://doi.org/10.1051/ita:2001111].
+
+Oracle (n.d.) _[What is a Relational Database (RDBMS)?](https://www.oracle.com/au/database/what-is-a-relational-database/)_, Oracle website, accessed 4 June 2024.
+
+- entity and referential integrity are the most fundamental constraints
+- primary key and referential integrity from the choice of foreign keys are the most fundamental constraints
+- primary key's cannot be missing
+- relational databases must not allow null values to ensure entity integrity, they should have default "surrogate" values alternatively such as 'value is unknown' or 'inapplicable'
+
+Oracle (n.d.) _[What is a Relational Database (RDBMS)?](https://www.oracle.com/au/database/what-is-a-relational-database/)_, Oracle website, accessed 4 June 2024.
+
+- in a relational database, each row in the table is a record with a unique ID called a key
+- columns hold attributes of the daya
+- different tables can be linked by a primary key, called a foreign key in the secondary table
+- relational databases are structured so that the logical data structures (tables, views, indexes) are separate from physical storage structures, renaming a database does not rename the tables stored within it
+- relational databases establish and follow integrity rules such as duplicate rows are not allowed
+- the relational model is a standardised way to represent and query data, allows the use of SQL which is built upon relational algebra
+- atomicity is the strict rulings that govern how data is allowed to be updated, a relational database won't commit changes until it is sure linked tables allow it
+- ACID atomicity - all elements that make up a complete databse transaction, consistency - the rules for maintaining data points after a transaction, isolation keeps the effect of a transaction invisible until it is commited to avoid confusion, durability - changes are permanent
+- relational databases allow stored procedures which are reusable blocks using an app call
+- database locking prevents users from accessing data while it is being updated, different apps lock tables or rows
+
+Babenko, M., Schwiegelsohn, U., Talbi, E. & Tchernykh, A. (2019), 'Towards understanding uncertainty in cloud computing with risks of confidentiality, integrity, and availability'. _Journal of Computational Science_, vol. 36, DOI:[10.1016/j.jocs.2016.11.011](https://doi.org/10.1016/j.jocs.2016.11.011)
+
+- Confidentiality, Integrity and Availability (CIA)
+- cloud increases security risks by shifting traditional models
+- confidentiality is limited access to information
+- integrity as the assurance that the information is trustworthy and accurate
+- availability as a guarantee of reliable access to the information by authorised people
+- data encryption, user identity documents (IDs), passwords, cards, retina scans, voice recognition and fingerprints, security tokens, key fobs
+- availability can compromised by bottlenecks, redundancy, hardware failure, speed om retirm
+- sharing resources with other virtual machines can slow, vms performance is unpredictable, physical hardware can slow vms even if a guaranteed speed is promised
+- information security assumes defending information from unauthorized access, use, disclosure, disruption
+- must consider accidental threats and failures
+- these authors propose "accountability" to protect data by all users who process the data
+- cryptographic protocol and error correction codes can reduce the risk
+- accidental threats include user errors, carelesslness, curiosity
+- check sums for monitoring obtained results
+- challenges because resource scheduling is difficult when the resource is shared amongst unknown users
+- data replication but is dangerous, secret sharing schemes (SSS) dealer distributes shares to recipients such that only authorised subsets of recipients can reconstruct the secret, can use homomorphic encryption which retains data encryption whilst it is encrypted public key to encrypt and corresponding private key can unlock but can have effects applied to it that maintains the relationship to the data computation can occur on ciphers which matches the result of operations performed on the original numbers,
 
 ## Q11. Describe the manipulative aspects of the relational database model. Your description should include information about the ways in which data is manipulated (added, removed, changed, and retrieved) in a relational database. /6
 
