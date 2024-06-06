@@ -4,46 +4,53 @@
 
 ## Q1. Describe the architecture of a typical API project, such as a Flask application. /6
 
-### -> ONLY Q to hold off on
-
 - detailed explanation of the architecture of an application, at least one example or reference with descriptions of main components of an application
 
 - high level view, what are the components relationships and how do they work together
 
-Mozilla (n.d.) _[Explanation of a web framework](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Web_frameworks)_, MDN Web Docs website, accessed 31 May 2024.
+When creating an API, a web framework is an effective launching point as it provides tools and templates for routing and resource handling. Flask is a web framework written for Python that is database agnostic and lightweight. For this reason, Flask is quick to install and configure and allows developers to choose the rest of their stack piece by piece and install these extensions only when required keeping the sources codes file size down (MDN Web Docs n.d.). After choosing a web framework, a database software must be chosen. If PostgreSQL (Postgres) is chosen, Psycopg is an adapter that allows a Python application to interact with PostgreSQL databases. "psycopg2-binary" is a pip package that allows developers to connect the two with only minor configuration by providing a URI for the database that contains the user profile username and password to engage as when interacting with Postgres.
+
+Once the database is connected, an Object Relational Mapper (ORM) allows a developer to generate SQL queries and objects in the application's language. SQLAlchemy provides a Python class that, once extended, contains tools to create models that mirror tables in a Postgres database. These models mirror the data formatting in the Postgres database and can be used, in the Python app, to generate correctly formatted SQL statements as well as return objects with row data from the Postgres database. SQLAlchemy is a useful ORM because it allows for varying data types, is database agnostic and can generate insert, update, delete or join statements (SQLAlchemy n.d.).
+
+Whilst SQLAlchemy generated queries are formatted in familiar SQL syntax, the objects these queries return are not in easy to access Python objects. For this reason, an API will typically feature a data conversion package that transforms these objects into Python-native objects such as dictionaries. marshmallow is a popular data converter that can convert an SQLAlchemy object flexibly (marshmallow, n.d.). marshmallow requires a user to define a schema that mirrors the model object and contains fields that correlate to the columns in the table. After an SQLAlchemy object is returned, it can be passed to a marshmallow schema which converts selected fields into a Python dictionary.
+
+In terms of security, flask_bcrypt is a package that can be istalled to hash and unhash data as it is sent and received from a database. Hashing data via bcrypt means that data can be stored in the Postgres database hashed and ineligible without conversion. A login route then be define which hashes the user's input and compares it to the hashed password to ensure they match without a user seeing the comparison. The next layer of security typically involves JWT tokens which can be generated in a Flask API using the flask_jwt_extended package. JWT tokens can be generated then returned to the user upon logging in. These JWT tokens can be generated with a defined lifecycle as well as embedded with a secret key. The secret key adds characters to the key which ensures that the token was generated via the application and was not altered in anyway before it was returned for authenication checks.
+
+## References
+
+marshmallow (n.d.) _[Why marshmallow?](https://marshmallow.readthedocs.io/en/latest/why.html)_, marshmallow Website, accessed 6 June 2024.
+
+MDN Web Docs (n.d.) _[Explanation of a web framework](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Web_frameworks)_, MDN Web Docs website, accessed 31 May 2024.
+
+Psycopg (n.d.) _[Psycopg 2.9.9 documentation: Installation](https://www.psycopg.org/docs/install.html)_, Psycopg Website, accessed 6 June 2024.
+
+SQLAlchemy (n.d.) _[Features and Philosophy](https://www.sqlalchemy.org/features.html)_, SQLAlchemy Website, accessed 6 June 2024.
+
+### Notes from references
+
+Psycopg (n.d.) _[Psycopg 2.9.9 documentation: Installation](https://www.psycopg.org/docs/install.html)_, Psycopg Website, accessed 6 June 2024.
+
+- most popular postgreSQL database adapter for python
+- psycopg2-binary package
+
+marshmallow (n.d.) _[Why marshmallow?](https://marshmallow.readthedocs.io/en/latest/why.html)_, marshmallow Website, accessed 6 June 2024.
+
+- converts complex datatypes to and from native Python datatypes
+- can convert SQLAlchemy objects to Python dicts
+- database agnostic
+- uses classes which are easy to reuse, can easily control which data is converted into a dict, can choose which will be converted and which won't
+
+SQLAlchemy (n.d.) _[Features and Philosophy](https://www.sqlalchemy.org/features.html)_, SQLAlchemy Website, accessed 6 June 2024.
+
+- Core allows SQL statements to be generated using python expresions
+- ORM allows for user-defined classes that align witht the table to write or query
+- allows for booleans, operators, functions, table aliases, selectable subqueries, insert/update/delete statements and joins among other features
+- SQLAlchemy is non-opinionated doesn't generate default shcemas
+- ORM
+
+MDN Web Docs (n.d.) _[Explanation of a web framework](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Web_frameworks)_, MDN Web Docs website, accessed 31 May 2024.
 
 - routing (Flask), Object-Relational Mapper (ORM) database layer that abstracts database read, write, query and delete operations (Django provides one, SQLAlchemy is an alternative), generating HTML?
-
-Cindric, V. (2021) _[The Basics of Designing An API Architecture](https://hackernoon.com/the-basics-of-designing-an-api-architecture)_, Hackernoon website, accessed 31 May 2024.
-
-Defining the methodology for running the API, API gateway, API portal
-
-Architectural styles: Web API, Rest
-
-Azure Devops (n.d.) _[Design APIs for microservices](https://learn.microsoft.com/en-us/azure/architecture/microservices/design/api-design)_, Microsoft website, accessed 31 May 2024.
-
-- front end or backend - front end will use REST
-- REST (http verbs) vs RPC (operations or commands)
-- interface definition language (IDL) - define the methods and parameters and return values
-- serialisations - how are objects serialised
-- framework and language support - what language
--
-
-Azure Article (2023) _[RESTful web API Design](https://learn.microsoft.com/en-us/azure/architecture/best-practices/api-design)_, Microsoft website, accessed 31 May 2024.
-
-- platform independence
-- service evolution -> API should keep working even as app upgrades
-- build around resources, resources have unique URI identifier, clients interact bt exchanging representations of resources HTTP requests, uniform interface standard HTTP verbs, stateless request model resources are the only place where information is stored increases scalability
-- consistent naming convention in URIs, plural nouns for URIs that reference collections, plural/id
-- relationship between types of resources such as '/customers/5/orders might represent orders for customer 5
-- API is an abstraction of the database, separated from the database layout and each table data
-- define API operations in terms of HTTP methods e.g./ /customers has a post get put and delete http action
-- HTTP status codes
-- versioning - making it so apps don't break as databases/API changes
-
-### References
-
-programmers.io (2023) _[The Basics of Designing An API Architecture](https://programmers.io/blog/basic-designing-of-api-architecture/)_, PostgreSQL website, accessed 31 May 2024.
 
 ## Q2. Identify a database commonly used in an API project (such as a Flask application) and discuss the pros and cons of this database. /6
 
