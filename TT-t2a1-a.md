@@ -51,37 +51,44 @@ programmers.io (2023) _[The Basics of Designing An API Architecture](https://pro
 
 - something like Postgres
 
-SQL:
+When initialising an API, there is a variety of paid and open-source software that can be used to create and link a database. These include relational and non-relational databases. Two of the most popular open source databases are the relational databases PostgreSQL (Postgres) and MySQL. Both use SQL to interact with stored data and each has benefits in how they are designed. A key feature of Postgres is its default robustness, installing with many features which must be adding with additional modules an packages in MySQL. Postgres has MVCC (multiversion concurrency control) built into it which is a key benefit in many usage context. MVCC configures Postgres to access snapshots of data rather than access the live data specifically. This means that data is not locked when it is being accessed, either queried or written to, so that multiple transactions can place concurrently (PostgreSQL Documentation, n.d.). This is beneficial in many API contexts where data could be required by two or more systems at once. Postgres is also ACID (Atomicity, Consistency, Isolation, Durability) compliant so that errors will not corrupt data (Amazson Web Services, 2024). Another benefit of Postgres is that it allows for parent-child relationships and inheritance without installing additional packages. These are some of the distinct advantages of Postgres over its competitors.
 
-- a programming language for recording and interpreting data in a relational database
-- uses rows and columns for different data attributes and to link relationships between value data
-- SQL queries allow you to interrogate data in a database
-- Amazon link here
+In terms of negatives, a key consideration when choosing Postgres versus an alternative is a higher overhead cost to initialise and utilise Postgres (Amazon Web Services, 2024 & Hanlon et al., 2011). Because Postgres is strict when inputting data, formatting schema and seeding data, users must be experienced in how the system works to use it effectively. In addition, tuples cannot be seeded unless they completely alligns with the data structure of the database meaning that data will often have to be screened or edited before it can be saved. This is a negative in more dynamic data storage environments where saving results is the first priority. This, again, becomes a problem when migrating data from and old or different system to be stored in Postgres (Hanlon et al., 2011). Postgres is also resource intensive and returns read queries slower than MySQL or alternative, non-relational databases such as CouchDB (Amazon Web Services, 2024 & Hanlon et al., 2011).
 
-PostgreSQL:
+In totality, Postgres strictness and robustness is a signature strength of the database but also causes some drawbacks. It is important to consider the frequency and type of requests an API will receive when choosing a database for it.
 
-- open-source object-relational database system
-- uses SQL language
-- runs on all major OS
-- can define your own data types
-- write custom functions even ones in other languages than SQL and C, passed to a handler that knows the language, including Python, called procedural languages
-- features many data types
-- PostgreSQL about here
+Amazon Web Services (2024) _[What's the Difference Between MySQL and PostgreSQL](https://aws.amazon.com/compare/the-difference-between-mysql-vs-postgresql/)_, AWS website, accessed 6 June 2024.
 
-[PostgreSQL vs SQL Server: What are the key differences?](https://cloud.google.com/learn/postgresql-vs-sql)
-[PostgreSQL About](https://www.postgresql.org/about/)
-[What is SQL?](https://aws.amazon.com/what-is/sql/)
+- Postgres is an object-relational database management system rather than just relational database
+- Postgres has more data types, scalability and data integrity
+- open-source, free to update software versions
+- Postgres is fully ACID compliant in all installations where as MySQL, a main alternative requires additional installations
+- Again, Postgres features multiversion concurrency control without additional installs, MySQL locks rows when writing
+- Postgres supports parent-child relationships and inheritance as well as arrays and XML which MySQL does not
+- Postgres allos users to store procedures written in languages other than SQL
 
-(<https://books.google.com.au/books?hl=en&lr=&id=jfKoCwAAQBAJ&oi=fnd&pg=PP1&dq=postgresql&ots=n3F3phg6TP&sig=6xnQ9Vt-ZvWQckrVpqcG3cbnSZ4#v=onepage&q=postgresql&f=false>)
-(<https://www.prisma.io/dataguide/postgresql/benefits-of-postgresql>)
-(<https://www.linkedin.com/pulse/postgresql-practical-guidefeatures-advantages-brainerhub-solutions>)
+Cons:
+
+- Postgres requires more technical set up and configuration set-ups and advanced commands
+- MySQL reads faster
+
+Hanlon, M., Dooley, R., Mock, S., Dahan, M., Nuthulapati, P. & Hurley, P. (2011). _Benefits of NoSQL databases for portals & science gateways_. DOI:[10.1145/2016741.2016780](https://doi.org/10.1145/2016741.2016780).
+
+- overhead of SQL databases is expensive, data-intensive interfaces, data not fitting the models cannot be fit in and must be redesigned or augmented, must migrate old data from old systems to new systems
+- these authors argue for NoSQL platforms or non-relational databases in certain circumstances because it loads faster
+- alternatives are platforms like CouchDB which delivers a RESTful API
+
+PostgreSQL Documentation (n.d.) _[13.1 Introduction: Chapter 13 Concurrency Control](https://www.postgresql.org/docs/16/mvcc-intro.html)_, PostgreSQL website, accessed 6 June 2024.
+
+- multiversion concurrency control means that each SQL statement accesses a snapshot of data rather than the current state which prevents queries from accessing updating data but allowing users to access data at a given moment rather than being locked out for changes
 
 ### References
 
-(Amazon Web Services, 2024)
 Amazon Web Services (2024) _[What is SQL?](https://aws.amazon.com/what-is/sql/)_, AWS website, accessed 24 May 2024.
 
-PostgreSQL (n.d.) _[PostgreSQL About](https://www.postgresql.org/about/)_, PostgreSQL website, accessed 24 May 2024.
+Hanlon, M., Dooley, R., Mock, S., Dahan, M., Nuthulapati, P. & Hurley, P. (2011). _Benefits of NoSQL databases for portals & science gateways_. DOI:[10.1145/2016741.2016780](https://doi.org/10.1145/2016741.2016780).
+
+PostgreSQL Documentation (n.d.) _[13.1 Introduction: Chapter 13 Concurrency Control](https://www.postgresql.org/docs/16/mvcc-intro.html)_, PostgreSQL website, accessed 6 June 2024.
 
 ## Q3. Discuss an implementation of an Agile project management methodology for an API project. /6
 
