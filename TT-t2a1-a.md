@@ -313,16 +313,42 @@ Olivier, M. (2002), 'Database privacy: balancing confidentiality, integrity aand
 
 ## Q7. Provide an overview of what would need to be done within an API project to implement at least one of the principles explained in Question 6. /12
 
-## BIG ONE
-
 - overview is correct, supported by more than one valid and relevant relevant code example with a high level of detail
 
-Covert, Q., Francis, M., Streff, K. (2020). _Towards a Triad for Data Privacy_, DOI: [10.24251/HICSS.2020.535](https://doi.org/10.24251/HICSS.2020.535)
+When initialising an API, confidentiality, integrity and availability must be guiding influences on how the API stores, returns and protects data. Because all three principles are connected, different, simple measures can bolster an API's ability to make strides in all three.
 
-- JWT
-- bcrypt
+Enforcing authentication and limiting authorisation is a principle measure that increases an APIs confidentiality and integrity. APIs are designed for to be accessed in varying user contexts such as a factory worker needing access to customer's name and address to create a postage label versus a marketing worker requiring the same customer's name and email address for promotional material. In contexts such as these, it would increase data confidentiality to only allow access to appropriate column data by each deparment. This can be enforced by creating unique user accounts per worker and granting distinct privileges to those users. Similarly, only certain workers should be allowed to alter tuple data to maintain database integrity. These systems can be set-up by creating log in routes that post a log in attempt to the API. The log in credentials can be checked against a hashed password storage to allow or block log in. When the worker logs in, they could be granted a JWT that is inspected on each request. Notably, it is important to implement session management and pass tokens with appropriate expiry times (Worksoft Corporate Blog, n.d.). This ensures that a user's session cannot be hijacked when they leave a workstation or lose a device. Below is an example of checking a user's login attempt using Flask with the flask_jwt_extended, sqlalchemy, marshmallow and flask-bcrypt packages with a set expiry time:
+
+```Python
+@app.route("/workers/login", methods=["POST"])
+def login():
+    params = UserSchema(only=["id", "password"]).load(
+        request.json, unknown="exclude"
+    )
+    # creates a Python object with key pairs from the user's passed "id" and "password" using a defined marshmallow model schema
+    stmt = db.select(User).where(User.id == params["id"])
+    # creates an SQL query using a User model defined using SQLAlchemy that matches a database's table schema. Specifically requests the row where the "id" value matches the users input for "id"
+    user = db.session.scalar(stmt)
+    # assigns a local variable the returned object from the query or none if a user with the input "id" does not exist  
+    if user and bcrypt.check_password_hash(user.password, params["password"]):
+    # uses bcrypt to decode the stored hashed password in the database assigned to the input "id", compares it to the input password value
+        token = create_access_token(identity=user.id, expires_delta=timedelta(minutes=30))
+    # if the passwords match, a JWT is created with an expiration date of 30 minutes. This JWT confirms that the user logged in via the appropriate method and can be checked when requesting certain routes to confirm the user has appropriate authentication to access those resources
+        return {"token": token}
+    else:
+        return {"error": "Invalid email or password"}, 401
+    # if the user's input id or password are incorrect, they are returned a HTTP error code 401
+```
+
+Another way to improve ensure confidentiality is to never pass a user's data via urls (Amazon Web Services, 2024). If user's log in attempt or other private data is passed as a variable in a URL rather than in the body, the data would be accessible and obtainable from that user's browser history.
+
+To improve an API's accessibility, it is vital to structure the API so that it is RESTful. Resource access and requests URLs need to be structured in a predictable way and semantic way that they describes the data branches they are accessing. Routing resources in a "collective noun/individual" instance structure such as "biographies/bio1" helps user's access data easily and logically.
 
 ## References
+
+Amazon Web Services. (2024) _[Data protection in Amazon API Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/data-protection.html)_, AWS website, accessed 7 June 2024.
+
+Worksoft Corporate Blog. (n.d.) _[Data protection in Amazon API Gateway](https://www.worksoft.com/corporate-blog/api-security-testing-ensuring-the-integrity-and-confidentiality-of-your-apis)_, Worksoft website, accessed 7 June 2024.
 
 ## Q8. Explain the legal obligations that developers of a social media website or social media application would have in regards to handling user data, with reference to any applicable laws or acts. /12
 
