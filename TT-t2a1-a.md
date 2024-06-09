@@ -352,15 +352,89 @@ Worksoft Corporate Blog. (n.d.) _[Data protection in Amazon API Gateway](https:/
 
 ## Q8. Explain the legal obligations that developers of a social media website or social media application would have in regards to handling user data, with reference to any applicable laws or acts. /12
 
-## BIG ONE
-
 - more than one legal obligation relevant to handling user data explained in high amounts of detail including relevant references to support the explanation
 
-- incorporate international legal obligations, social media hosted in multiple countries
+Social media websites and applications inherently require data of varying scopes to be stored. From email addresses, to names and optional personifiers such as date of birth, location data and images, social media companies request a lot of data but also receive a lot voluntarily. These companies must implement security practices to uphold confidentiality, integrity and availability of data and they must do so in a way that follows domestic as well as international laws. These laws specify how data can be stored and used as well as what constitutes a failure from the company's practices.
 
-- look at GDPR (Europe) obligations and mention those
+In Australia, data privacy regulations are derived from the Australian Privacy Act from 1988 as well as the thirteen Australian Privacy Principles which, together, dictate guidelines and rules for businesses to adhere to when storing user data (Australian Government Office of the Australian Information Commissioner, n.d.). The privacy principles outline data-based interactions and mandate that companies must be transparent in their storage policies, clarify when data is being stored and obtain consent when doing so, communicate with customers when their information is being shared with third-parties as well as allowing users to know what data is stored about them and give them the opportunity to correct any errors (principles 1, 5, 6, 12 and 13). Principles 2, 3, 4 and 7 outline that companies must offer individuals the ability to use their services without their data being stored or through using a pseudonym, not store particular data including race or union affiliation, destroy or de-identify irrelevant data and follow a set of rules when using direct marketing. Finally, principles 8, 9, 10 and 11 outline security procedures for sending data internationally, the restriction of releasing government ID data, how companies must reasonably attempt to keep data up to date and, vitally, that companies must implement protect data from unauthorised access. Notably, the Australian government is currently in the process of updating these laws and regulations to include stricter guidelines about depersonalising and destroying data after certain time periods and granting users the ability to oppose the storage of their data (Australian Government Attorney-General's Department, 2023).
 
-- A good one to answer early
+In addition to Australian laws, an Australian-based social media company must consider foreign laws that apply to any international users that the company may acquire. The GDPR (General Data Protection Regulation) is a collection of regulations that enforce how EU residents' data may be collected and stored. Importantly, the GDPR applies to foreign businesses that offer goods or services or store behaviour data about individuals living in the EU including cookies (Wolford, B., n.d.). Whilst many GDPR regulations are mirrored by the Australian Privacy Act, there are notable instances where the GDPR has much stricter and more explicit requirements (Australian Government Office of the Australian Information Commissioner, 2018). Unlike Australian laws, data privacy laws apply to all scales of businesses, require all businesses to complete a compulsory data protection assessment and employ an appointed data protection officer. The regulation also features "right to erasure", a "right to data portability" and a "right to object" which gives individuals the means to have their data deleted upon request, receive stored data about them in a conventional and reasonable data format and the ability to challenge the storage of their data. It is vital that any social media consider security laws that can be enforced on behalf of foreign users.
+
+Considering the widespread laws relating to data privacy, it is essential that a social media company creates a thorough plan for how it will handle user data. At a fundamental level, data must be stored in a way that protects individual privacy and companies should take measures to de-personalise, securely store or, simply, not store personal data where appropriate. It is also crucial that a social media company has an individual professionally responsible for the company's policies who understands the laws that affect the company. Because users must be able to access, alter or, as per the GDPR's "right to be forgotten", delete archived data, companies must develop techniques that easily allow these actions. Finally, data storage constent is a particularly prominent focus of the GDPR and Australian laws and companies must be deliberate in communicating users these options. In 2023, the GDPR issued Tik Tok, a predominately foreign company, a €345 million fine for presenting teenage users misleading consent options between July 2020 and December 2020. During this time, the app presented subtle and hard to comprehend optionality for making a user's account and videos private (EDPB, 2023). With such rulings as well as an imminent increase to Australian laws, a social media company must err on the side of communication in its data privacy practices and transparency with users.
+
+### References
+
+Australian Government Attorney-General's Department, (2023), _[Privacy Act Review Report](https://www.ag.gov.au/rights-and-protections/publications/privacy-act-review-report)_, Australian Government website, accessed 8 June 2024.
+
+Australian Government Office of the Australian Information Commissioner, (2018), _[Australian entities and the European Union General Data Protection Regulation](https://www.oaic.gov.au/privacy/privacy-guidance-for-organisations-and-government-agencies/more-guidance/australian-entities-and-the-european-union-general-data-protection-regulation)_, Australian Government website, accessed 8 June 2024.
+
+Australian Government Office of the Australian Information Commissioner, (n.d.), _[Australian Privacy Principles quick reference](https://www.oaic.gov.au/privacy/australian-privacy-principles/australian-privacy-principles-quick-reference)_, Australian Government website, accessed 8 June 2024.
+
+EDPB (2023), _[Following EDPB Decision, TikTok ordered to eliminate unfair design practices concerning children](https://www.edpb.europa.eu/news/news/2023/following-edpb-decision-tiktok-ordered-eliminate-unfair-design-practices-concerning_en)_, GDPR website, accessed 9 June 2024.
+
+Wolford, B. (n.d.), _[Does the GDPR apply to companies outside of the EU?](https://gdpr.eu/companies-outside-of-europe/)_, GDPR website, accessed 8 June 2024.
+
+Australian Government Office of the Australian Information Commissioner, (2018), _[Australian entities and the European Union General Data Protection Regulation](https://www.oaic.gov.au/privacy/privacy-guidance-for-organisations-and-government-agencies/more-guidance/australian-entities-and-the-european-union-general-data-protection-regulation)_, Australian Government website, accessed 8 June 2024.
+
+- businesses may need to comply with the GDPR if they offer goods and services in the EU
+- data breach notification (GDPR and privacy act)
+- processng activities of business regardless of size - controler says how data is processed, processor acts on behalf of thhe controller, process
+- Aus businesses affected: Aus businesses with an office in EU, webbsite targets EU customers enabling them to order goods or services in a Euro language or enabling euro payment, business mentions customers or users in the EU, business that tracks EU individuals using data processing/profiling
+- personal data: racial origin, political opinions, religious beliefs, trade union membership, genetic data, biometric dayas, health or sex life data
+- must comply with Article 5 of the GDPR 'Principles relating to the processing of personal data'
+- Article 24 ensure data protection policies comply with these
+- Article 5 - data protection by design and by default
+- minimise personal data storage, pseudonymising personal data, transparency to functions and processing, individual may monitor processing
+- controllers and processes must in certain circumstances appoint a data protection officer to monitor and advise compliance with GDPR with internal policies and procedures
+- controllers must undertake a compulsory data protection impact assessment prior to high risk data processing article 35 outlines high risk
+- controllers must keep records of processing activities article 30
+- consent of data choice means user can with draw consent, must be as easy as giving consent article 7
+- individuals below 16 must get parental responsibility approve consent article 8
+- 72 hours to notify data breach article 33
+- "right to be forgotten" article 17, individuals have a rioght that data controllers must delete their data where the information is no longer neccessary or the individual withdraws constent
+- right to portability - individual must be able to receive the data in a structured, commonly user, machine-readable format
+- GDPR can impose admin fines for up to 20 mill euros or 4 percent of ww turnover
+- monitoring the behaviour of individuals in the EU is the big one for aussies
+
+Wolford, B. (n.d.), _[Does the GDPR apply to companies outside of the EU?](https://gdpr.eu/companies-outside-of-europe/)_, GDPR website, accessed 8 June 2024.
+
+- article 3 - territorial scope of the law - regardless if the processing takes place in the union or not
+- offering goods or services irrespective of whether a payment is required, monitoring eu behaviour within the union
+- if you cater to the EU - foreign language ads, random instances do not qualify you
+- cookies, ip addresses, GDPR applies
+
+Australian Government Attorney-General's Department, (2023), _[Privacy Act Review Report](https://www.ag.gov.au/rights-and-protections/publications/privacy-act-review-report)_, Australian Government website, accessed 8 June 2024.
+
+- government accepted proposals to alter the privacy act
+- proposed reforms to strengthen data privacy laws
+- including small businesses in more laws which they are presently exempt from less than 3 mill revenue
+- proposed to create new OAIC guidelines about destroying or depersonalising inappropriat epersonal data, review the length of time data is stored
+- proposes individual rights modelled on the GDPR such as the right to object, request erasure and have search results de-indexed
+- increased enforcement capabilities, civil penalties, individuals being able to seek remedies for breaches of the act that cause harm
+
+Australian Government Office of the Australian Information Commissioner, (n.d.), _[Australian Privacy Principles quick reference](https://www.oaic.gov.au/privacy/australian-privacy-principles/australian-privacy-principles-quick-reference)_, Australian Government website, accessed 8 June 2024.
+
+- a collection of the privacy principles that govern standards rights and oblications of data storage and individual rights
+- 1: open and transparent management of personal informaiton
+- 2: individuals must give individuals the option of not identifying themselves or using a pseudonym with limited exceptions
+- 3: collection of solicited personal information is limited such as race or union membership
+- 4: collection of unsolicited personal data, entities must destroy or de-identify data or handle it in accordance with more rules such as finanical records being atteched without being required
+- 5: must notify users when an entity is collecting personal data
+- 6: user must consent to secondary user or disclosure, user may reasonably expect the user to be related to the primary purpose
+- 7: direct marketing must follow particular rules
+- 8: must take steps to protect personal information before overseas disclosure
+- 9: cannot release users Medicare numbers, centrelink reference numbers, passport numbers etc
+- 10: must take reasonable steps to ensure personal data is accurate and up to date
+- 11: protect data from loss unauthorised access
+- 12: users must be able to access what information is stored on them
+- 13: must take reasonable steps to correct personal information that is misleading
+
+EDPB (2023), _[Following EDPB Decision, TikTok ordered to eliminate unfair design practices concerning children](https://www.edpb.europa.eu/news/news/2023/following-edpb-decision-tiktok-ordered-eliminate-unfair-design-practices-concerning_en)_, GDPR website, accessed 9 June 2024.
+
+- Tik Tok data processing between July and December 2020
+- unfair pop-up notifications shown to children 13-17 with a "skip" pop-up when making accounts which defaulted to public
+- "Post Now" was presented in bold next to a lighter "cancel" which was required look for privacy settings to make account private, 'public-by-default'
+- assessed a €345 million pound fine
 
 ## Q9. Describe the structural aspects of the relational database model. Your description should include information about the structure in which data is stored and how relations are represented in that structure. /6
 
