@@ -641,30 +641,51 @@ PostgreSQL Documentation (n.d.b) _[Truncate](https://www.postgresql.org/docs/16/
 
 - open-source apps are great for this q so you can see schema data and source code
 
-Firefox. Open-source.
-[Data stores](https://mozilla.github.io/firefox-browser-architecture/text/0010-firefox-data-stores.html),
-[Data storage set-ups including ERDs](https://github.com/mozilla/firefox-data-store-docs),
-[Mozilla Wiki](https://wiki.mozilla.org/Main_Page),
-[Stack description](https://wiki.mozilla.org/EngineeringProductivity/Projects/Conduit/Tech_Stack),
-
-Instagram.
-[Techstack](https://stackshare.io/instagram/instagram)
-[Info on Django](https://instagram-engineering.com/web-service-efficiency-at-instagram-with-python-4976d078e366)
-[Presentation on Instagrams Django/Python usage](https://www.infoq.com/presentations/instagram-scale-infrastructure/)
-[Linked in description of their tech stack](https://www.linkedin.com/pulse/choosing-right-tech-stack-instagram-example-vijay-mendiratta)
-[Instagram developers blog tech stack](https://instagram-engineering.com/what-powers-instagram-hundreds-of-instances-dozens-of-technologies-adf2e22da2ad)
-
-### 1. List and describe the software (tech stack) used by the app
+### A. List and describe the software (tech stack) used by the app
 
 - detailed description of the software, multiple references to support the description
 
-### 2. Describe or make educated guesses about the hardware used to host the app
+Pinterest is a web application that allows users to keyword search for images to "pin" on user-created "pinboards" that collate images in particular orders. These images are uploaded to Pinterest by companies or individuals and they are displayed with a title, the user who uploaded them and they can link to external websites such as blogs or online stores (Pinterest Help, n.d.). User's boards are typically used for creative inspiration and the site functions largely like a social media app (Pinterest Business, n.d.). Notably, Pinterest was famously able to achieve a massive user base with a simple, but scalable, tech stack (Engineer's Codex, 2023). As the app has grown, it has incorporated varying tools, libraries and software that allow it to achieve increased functionality such as suggestive ad serving and user interaction tracking however its core functionality is built upon the pinboard functionality (The Technology Vault, n.d., ).
+
+Python is the predominant coding language used for Pinterest's backend and data processing and it is used in conjunction with Django. Django is an web framework that features routing, user authentication as well as ORM tools to generate database interactions. For its databases, Pinterest uses MySQL, an an open-source relational database and alternative to PostgreSQL. For the front-end, Pinterest uses React which is a Javascript library containing tools to build interactive HTML webpages and mobile apps. To improve the efficiency of server requests, Pinterest leverages NGINX, an open-source web-server and reverse proxy. NGINX operates between user requests and a company's servers to execute requests in an optimised way by distributing traffic to less-strained resources and caching results among other measures. Pinterest utilises both Redis and Memcached for data caching. Each software has its strengths and Memcached is optimised for storing and returning key-value pairs quickly whilst Redit is utilised for storing complex data structures (Amazone Web Services, n.d.).
+
+## References
+
+Amazon Web Services (n.d.) _[Comparing Redis and Memacached](https://aws.amazon.com/elasticache/redis-vs-memcached/)_, Amazon Web Services website, accessed 9 June 2024.
+
+Engineer's Codex (2023) _[How Pinterest scaled to 11 million users with only 6 engineers](https://read.engineerscodex.com/p/how-pinterest-scaled-to-11-million)_, Engineer's Codex website, accessed 9 June 2024.
+
+Pinterest Business (n.d.) _[How Pinterest Works](https://business.pinterest.com/en-au/how-pinterest-works/)_, Pinterest Business website, accessed 9 June 2024.
+
+Pinterest Help (n.d.) _[All about Pinterest](https://help.pinterest.com/en/guide/all-about-pinterest)_, Pinterest Help Center website, accessed 9 June 2024.
+
+StackShare (n.d.) _[Stack History: A Timeline of Pinterest's Tech Stack Evolution](https://stackshare.io/stack-history-timeline-pinterest-tech-stack-evolution)_, StackShare website, accessed 9 June 2024.
+
+The Technology Vault (n.d.) _[Pinterest Tech Stack](https://thetechnologyvault.com/pinterest-tech-stack)_, The Technology Vault.com website, accessed 9 June 2024.
+
+### B. Describe or make educated guesses about the hardware used to host the app
+
+- Pinterest hosts data on Amazon S3, a cloud stoage service. It also uses Amazon EC2 for cloud computing
 
 - detailed description, multiple references to support the description
 
 - how much CPU would it need and network bandwidth
 
-### 3. Describe the interaction of technologies within the app
+Pinterest uses Amazon services to host its databases as well as to execute cloud computing. Amazon S3 is a storage service that offers specific storage options for more or less frequently accessed data. Pinterest has publicly described how it uses different S3 storage classes including the S3 Glacier Flexible Retrieval and S3 Glacier Deep Archive services for less used, archival storage such as data from years ago (Yin et al., 2021). It also uses, non-specified, faster web S3 services such as the S3 Standard which is optimised for frequently accessed data (Amazon Web Services, n.d.). S3 are cloud databases that store data in key pairs in storage centres located around the world. Specific Amazon hardware is a trade secret but it is reasonable to assume their data centers feature advanced proprietary servers with solid-state hardware. Pinterest also uses Amazon's EC2 services which provide virtual servers for running cloud processing (Amazon Elastic Compute Cloud, 2024). These services can communicate at bandwith's of up to 100GBs (Amazon Knowledge Center, 2023). With more than 440 million users and being a prominent user of Amazon Web Services, it is safe to assume that Pinterest accesses Amazon's fastest services (Yin et al., 2021). It is worth noting that, in 2015, Pinterest had 10 petabytes of data stored in S3 (Weiner) and so, with millions more users and 9 more years of archived data, it is clear that Pinterest is hosted by very, very significant hardware.
+
+## References
+
+Amazon Elastic Compute Cloud (2024) _[What is Amazon EC2](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html)_, Amazon Web Services Website, accessed 9 June 2024.
+
+Amazon Knowledge Center (2023) _[What's the maximum transfer speed between Amazon EC2 and Amazon S3?](https://repost.aws/knowledge-center/s3-maximum-transfer-speed-ec2)_, Amazon re:Post Website, accessed 9 June 2024.
+
+Amazon Web Services (n.d.) _[Amazon S3 FAQs](https://aws.amazon.com/s3/faqs/)_, Amazon Web Services Website, accessed 9 June 2024.
+
+Weiner, M. (2014) _[Powering big data at Pinterest](https://medium.com/pinterest-engineering/powering-big-data-at-pinterest-3c4836e2b112)_, Pinterest Engineering Medium Website, accessed 9 June 2024.
+
+Yin, Y., Yang, B., Kou, X. (2021) _[How Pinterest uses Amazon S3 Glacier Deep Archive to manage storage for its visual discovery engine](https://aws.amazon.com/blogs/storage/how-pinterest-uses-amazon-s3-glacier-deep-archive-to-manage-storage-for-its-visual-discovery-engine/)_, Amazon Storage Blog website, accessed 9 June 2024.
+
+### C. Describe the interaction of technologies within the app
 
 - detailed description, identifies the roles and purposes of all technologies described
 
@@ -672,22 +693,61 @@ Instagram.
 
 - one thing assessed is logical deductions if data isn't explained
 
-### 4. Describe the way data is structured within the app’s database(s)
+To consider how the different software in Pinterest's stack interact, it is helpful to start at the front end. Pinterest began using ReactJS for its webpage rendering in 2015 and have described how their data flow works when a user makes a request (Chan, 2016). When a user requests a Pinterest webpage, the request first passes through an Nginx proxy layer that sends the request to Pinterest's servers in an efficient way. Once received by Pinterest servers, the servers use React and Node to begin compiling the document to be returned. This involves making requests to Pinterest's different data APIs to return data that will populate the page such as images (Semah, 2022). These APIs are coded using Django and the data requests follow the appropriate routes to access the neccessary data. These routes generate SQL statements to query Pinterest's databases. Notably, the databases may be queried directly, but it is likely that data cached via Redis and Memcached's alogrithms can be returned without passing requests to the MySQL databases directly. The requested data is then returned to React which inserts it to complete the HTML document which, once finished is returned to the user and rendered in their browser.
+
+## References
+
+Chan (2016) _[How we switched our template rendering engine to React](https://medium.com/pinterest-engineering/how-we-switched-our-template-rendering-engine-to-react-a799a3d540b0)_, Pinterest Engineering Medium Website, accessed 9 June 2024.
+
+Semah, B. (2022) _[What Exactly is Node.js? Explained for Beginners](https://www.freecodecamp.org/news/what-is-node-js/)_, freeCodeAcademy Website, accessed 9 June 2024.
+
+### D. Describe the way data is structured within the app’s database(s)
 
 - detailed understanding of the data structure and includes an example or reference about why the database structure was chosen for the real world application
 
 - more of a high level assessment
 
-### 5. Identify the entities/tables that are tracked within the app’s database(s)
+Pinterest stores its data using MySQL databases. Notably, they have adopted this structure for its effectiveness and popularity. Pinterest engineer Weiner (2014a) explains that MySQL is used by the company for its maturity and scalability. As a company that requires extensive, and increasing, database queries, MySQL is an effective database that has proven its effectiveness through extended popularity. In addition, Weiner celebrates the breadth of knowledge about and developed features of MySQL.
+
+Notably, the prominence of image data in Pinterest means that the application generates extemely large database files. Because of this, their data could not be stored on finite databases or single locations. In anticipation of increased data storage and to improve API performance, Pinterest implemented database sharding that segregated and divided their MySQL databases across servers (Weiner, 2014b). Notably, this process restricts the APIs from using joins or foreign keys to link data that is stored on separate servers, a significant decision. Sharding requires significant restructuring of the ways that data is accessed and the information contained in a tuple. To ensure data is trackable within a sharded system, Pinterest records tuples information about which shard their master is stored in and madates that data should not be moved or saved in different shards once it is reocrded. To overcome the inability to join tables, Pinterest uses mapping tables that consider the shard values to access data from different shards which are then joined at the application layer.
+
+Whilst Pinterest's database systems are unconventional, they are appropriate for their data-intensive storage requirements.
+
+## References
+
+Weiner, M. (2015a) _[Powering big data at Pinterest](https://medium.com/pinterest-engineering/powering-big-data-at-pinterest-3c4836e2b112)_, Pinterest Engineering Medium Website, accessed 9 June 2024.
+
+Weiner, M. (2015b) _[Sharding Pinterest: How we scaled our MySQL fleet](https://medium.com/pinterest-engineering/sharding-pinterest-how-we-scaled-our-mysql-fleet-3f341e96ca6f)_, Pinterest Engineering Medium Website, accessed 9 June 2024.
+
+### E. Identify the entities/tables that are tracked within the app’s database(s)
 
 - identifies all significant entities including additional entities required to optimise or normalise the db structure
 
 - if the user can do this, then the database MUST store, front-end informing guesses to make it work
 
-### 6. Identify the relationships and associations between the entities/tables identified in sub-question E
+Weiner (2015) outlines key tables that are stored in the Pinterest databases: Pins, users, boards and comments. Considering how the user can interact with these features, it is reasonable to assume the tables have the following attributes:
+
+Pins: "description, "link", "user_id", "board_id", "pin_id", "shard_id", "date_pinned"
+Users: "email", "password", "id", "shard_id", "boards"
+Boards: "id", "board_title", "user_id", "shard_id", "has_pins", "pin_sequence", "date_created", "visibility"
+Comments: "id", "user_id", "pin_id", "shard_id", "content", "date_created", "edited"
+
+## References
+
+Weiner, M. (2015) _[Sharding Pinterest: How we scaled our MySQL fleet](https://medium.com/pinterest-engineering/sharding-pinterest-how-we-scaled-our-mysql-fleet-3f341e96ca6f)_, Pinterest Engineering Medium Website, accessed 9 June 2024.
+
+### F. Identify the relationships and associations between the entities/tables identified in sub-question E
 
 - identifies ALL relationships/associations in a sophisticated relational model
 
-### 7. Design an entity relationship diagram (ERD) based on the answers provided to sub-questions 5 and 6. This must represent a relational database model, even if the app itself uses something other than a relational database model
+Users has a one to many relationship with pins, boards and comments. Pins, boards and comments would each use user ID as a foreign key to contribute to their primary keys. Pins are linked to boards via "board_id", a foreign key that uses a board's ID to link individual pins to a board. A board must also preserve values to sequence the pins linked to it in a "pin_sequence" value. This would update as the user adds pins and rearranges them. Boards have a one to many relationship with pins. Users can also comment on pins unlimited times so a comment's primary key would be a compound key from the pin ID that it was posted on, the user ID who commented it and a comment ID to differentiate it from a user's other comments on the same pin.
+
+### G. Design an entity relationship diagram (ERD) based on the answers provided to sub-questions 5 and 6. This must represent a relational database model, even if the app itself uses something other than a relational database model
 
 - a normalised ERD (without data duplication) that facilitates full functionality of the app
+
+![Pinterest ERD](/docs/Pinterest-ERD-v1.0.png)
+
+## References
+
+PostgreSQL Documentation (n.d.a) _[psql](https://www.postgresql.org/docs/current/app-psql.html)_, PostgreSQL website, accessed 5 June 2024.
