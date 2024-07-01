@@ -32,7 +32,7 @@ In totality, Postgres' strictness and robustness is a signature strength of the 
 
 Amazon Web Services (2024) _[What is SQL?](https://aws.amazon.com/what-is/sql/)_, AWS website, accessed 24 May 2024.
 
-Hanlon, M., Dooley, R., Mock, S., Dahan, M., Nuthulapati, P. & Hurley, P. (2011). _Benefits of NoSQL databases for portals & science gateways_. DOI:[10.1145/2016741.2016780](https://doi.org/10.1145/2016741.2016780).
+Hanlon, M., Dooley, R., Mock, S., Dahan, M., Nuthulapati, P. & Hurley, P. (2011). _Benefits of NoSQL databases for portals & science gateways_. DOI: [10.1145/2016741.2016780](https://doi.org/10.1145/2016741.2016780).
 
 PostgreSQL Documentation (n.d.) _[13.1 Introduction: Chapter 13 Concurrency Control](https://www.postgresql.org/docs/16/mvcc-intro.html)_, PostgreSQL website, accessed 6 June 2024.
 
@@ -46,7 +46,7 @@ Utilising agile project management to create an API would require a team to firs
 
 Brede Moe, N., Dingsøyr, T., Dyba, T. (2014) 'Agile Project Management', in Ruhe, G., Wohlin, C. (eds.) _Software Project Management in a Changing World_. Berlin: Springer-Verlag, pp. 277-300.
 
-Fernandez, D. J. and Fernandez, J. D. (2008) ‘Agile Project Management —Agilism versus Traditional Approaches’, Journal of Computer Information Systems, 49(2), pp. 10–17. doi: 10.1080/08874417.2009.11646044.
+Fernandez, D. J. and Fernandez, J. D. (2008) ‘Agile Project Management —Agilism versus Traditional Approaches’, Journal of Computer Information Systems, 49(2), pp. 10–17. DOI: 10.1080/08874417.2009.11646044.
 
 ## Q4. Provide an overview and description of a standard source control process for an API project. /6
 
@@ -96,11 +96,11 @@ Notably, confidentiality, integrity and accessibility are interconnected and mus
 
 ### References
 
-Babenko, M., Schwiegelsohn, U., Talbi, E. & Tchernykh, A. (2019), 'Towards understanding uncertainty in cloud computing with risks of confidentiality, integrity, and availability'. _Journal of Computational Science_, vol. 36, DOI:[10.1016/j.jocs.2016.11.011](https://doi.org/10.1016/j.jocs.2016.11.011)
+Babenko, M., Schwiegelsohn, U., Talbi, E. & Tchernykh, A. (2019), 'Towards understanding uncertainty in cloud computing with risks of confidentiality, integrity, and availability'. _Journal of Computational Science_, vol. 36, DOI: [10.1016/j.jocs.2016.11.011](https://doi.org/10.1016/j.jocs.2016.11.011)
 
-Mitchell, O., Osazuwa, C. (2023), 'Confidentiality, Integrity, and Availability in Network Systems: A Review of Related Literature'. _International Journal of Innovative Science and Research Technology_, 8(12),  DOI:[10.38124/ijisrt](https://doi.org/10.38124/ijisrt)
+Mitchell, O., Osazuwa, C. (2023), 'Confidentiality, Integrity, and Availability in Network Systems: A Review of Related Literature'. _International Journal of Innovative Science and Research Technology_, 8(12),  DOI: [10.38124/ijisrt](https://doi.org/10.38124/ijisrt)
 
-Olivier, M. (2002), 'Database privacy: balancing confidentiality, integrity aand availability'. _SIGKDD Explorer Newsletter_, 4(3),  DOI:[10.1145/772862.772866](https://doi.org/10.1145/772862.772866)
+Olivier, M. (2002), 'Database privacy: balancing confidentiality, integrity aand availability'. _SIGKDD Explorer Newsletter_, 4(3),  DOI: [10.1145/772862.772866](https://doi.org/10.1145/772862.772866)
 
 ## Q7. Provide an overview of what would need to be done within an API project to implement at least one of the principles explained in Question 6. /12
 
@@ -207,7 +207,7 @@ These measures, whilst simple, are fundamental to relational databases' integrit
 
 ### References
 
-Babenko, M., Schwiegelsohn, U., Talbi, E. & Tchernykh, A. (2019), 'Towards understanding uncertainty in cloud computing with risks of confidentiality, integrity, and availability'. _Journal of Computational Science_, vol. 36, DOI:[10.1016/j.jocs.2016.11.011](https://doi.org/10.1016/j.jocs.2016.11.011)
+Babenko, M., Schwiegelsohn, U., Talbi, E. & Tchernykh, A. (2019), 'Towards understanding uncertainty in cloud computing with risks of confidentiality, integrity, and availability'. _Journal of Computational Science_, vol. 36, DOI: [10.1016/j.jocs.2016.11.011](https://doi.org/10.1016/j.jocs.2016.11.011)
 
 Levene, M. and Loizou, G. (2001) ‘A Generalisation of Entity and Referential Integrity in Relational Databases’, RAIRO - Theoretical Informatics and Applications, 35(2), pp. 113–127. DOI:10.1051/ita:2001111[https://doi.org/10.1051/ita:2001111].
 
